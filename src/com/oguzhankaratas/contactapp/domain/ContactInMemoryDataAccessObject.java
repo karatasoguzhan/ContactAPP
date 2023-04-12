@@ -2,25 +2,25 @@ package com.oguzhankaratas.contactapp.domain;
 
 import java.util.ArrayList;
 
-public class Contact {
+public class ContactInMemoryDataAccessObject implements ContactDataAccessLayer {
 
     private ArrayList<Person> people;
 
-    public Contact() {
+    public ContactInMemoryDataAccessObject() {
         this.people = new ArrayList<Person>();
 
     }
-
+    @Override
     public void addPerson(Person newPerson) {
         people.add(newPerson);
     }
-
+    @Override
     public void printAll() {
         for (int i = 0; i < people.size(); i++) {
             System.out.println(people.get(i));
         }
     }
-
+    @Override
     public ArrayList<Person> findPersonByName(String name) {
         ArrayList<Person> personList = new ArrayList<>();
         for (Person person : people) {
@@ -30,11 +30,11 @@ public class Contact {
         }
         return personList;
     }
-
+    @Override
     public void removePerson(Person person) {
         people.remove(person);
     }
-
+    @Override
     public Person deletePerson(Person personWillBeDeleted) {
         for (int i = 0; i < people.size(); i++) {
             Person person = people.get(i);
@@ -47,7 +47,7 @@ public class Contact {
         }
         return null;
     }
-
+    @Override
     public Person updatePerson(Person person, int id) {
         for (int i = 0; i < people.size(); i++) {
             Person person1 = people.get(i);

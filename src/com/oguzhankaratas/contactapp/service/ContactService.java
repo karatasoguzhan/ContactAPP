@@ -1,15 +1,35 @@
 package com.oguzhankaratas.contactapp.service;
 
-import com.oguzhankaratas.contactapp.domain.Contact;
+import com.oguzhankaratas.contactapp.domain.ContactInMemoryDataAccessObject;
 import com.oguzhankaratas.contactapp.domain.Person;
 
-public class ContactService {
-    private final Contact contact;
+import java.util.ArrayList;
 
-    public ContactService(Contact contact) {
-        this.contact = contact;
+public class ContactService {
+    private final ContactInMemoryDataAccessObject contactInMemoryDataAccessObject;
+
+    public ContactService(ContactInMemoryDataAccessObject contactInMemoryDataAccessObject) {
+        this.contactInMemoryDataAccessObject = contactInMemoryDataAccessObject;
     }
     public void addPerson(Person person){
-        contact.addPerson(person);
+        contactInMemoryDataAccessObject.addPerson(person);
+    }
+    public void printAll(){
+        contactInMemoryDataAccessObject.printAll();
+    }
+
+    public ArrayList<Person> findPersonByName(String name){
+        ArrayList<Person> personByName = contactInMemoryDataAccessObject.findPersonByName(name);
+        return personByName;
+    }
+    public void removePerson(Person person){
+        contactInMemoryDataAccessObject.removePerson(person);
+    }
+    public Person deletePerson(Person person){
+        return contactInMemoryDataAccessObject.deletePerson(person);
+    }
+    public Person updatePerson(Person person,int id){
+        Person person1 = contactInMemoryDataAccessObject.updatePerson(person, id);
+        return person1;
     }
 }
