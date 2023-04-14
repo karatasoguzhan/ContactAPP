@@ -36,6 +36,7 @@ public class ContactHardDiscDAO implements ContactDataAccessLayer{
         try(BufferedReader reader =new BufferedReader( new FileReader("contacts.txt"))) {
             String line;
             while ((line=reader.readLine()) != null){
+
                // Person person = new Person();
             }
         } catch (IOException e) {
@@ -46,6 +47,25 @@ public class ContactHardDiscDAO implements ContactDataAccessLayer{
 
     @Override
     public void removePerson(Person person) {
+        try(BufferedReader reader = new BufferedReader(new FileReader("contacts.txt"))) {
+            String line;
+            String newData="";
+            String data = person.toString();
+            while((line=reader.readLine())!=null){
+                if (!line.contains(data)){
+                    newData+= line+"\n";
+                }
+            }
+            FileWriter writer =new FileWriter("contacts.txt");
+            writer.write(newData);
+            writer.close();
+
+       } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
 
     }
 
@@ -56,6 +76,7 @@ public class ContactHardDiscDAO implements ContactDataAccessLayer{
 
     @Override
     public Person updatePerson(Person person, int id) {
+
         return null;
     }
 }
