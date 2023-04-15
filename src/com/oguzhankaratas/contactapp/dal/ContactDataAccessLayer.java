@@ -1,4 +1,6 @@
-package com.oguzhankaratas.contactapp.domain;
+package com.oguzhankaratas.contactapp.dal;
+
+import com.oguzhankaratas.contactapp.domain.Person;
 
 import java.util.ArrayList;
 

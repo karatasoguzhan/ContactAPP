@@ -1,4 +1,7 @@
-package com.oguzhankaratas.contactapp.domain;
+package com.oguzhankaratas.contactapp.dal.dao;
+
+import com.oguzhankaratas.contactapp.dal.ContactDataAccessLayer;
+import com.oguzhankaratas.contactapp.domain.Person;
 
 import java.util.ArrayList;
 

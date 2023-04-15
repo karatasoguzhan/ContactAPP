@@ -1,6 +1,6 @@
 package com.oguzhankaratas.contactapp.service;
 
-import com.oguzhankaratas.contactapp.domain.ContactInMemoryDataAccessObject;
+import com.oguzhankaratas.contactapp.dal.dao.ContactInMemoryDataAccessObject;
 import com.oguzhankaratas.contactapp.domain.Person;
 
 import java.util.ArrayList;
