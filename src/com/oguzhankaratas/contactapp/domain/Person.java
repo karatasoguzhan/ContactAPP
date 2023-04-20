@@ -5,7 +5,6 @@ import java.util.Objects;
 public class Person {
 
     private int id = idCounter++;
-
     private String fullName;
     private String phoneNumber;
     private String email;
