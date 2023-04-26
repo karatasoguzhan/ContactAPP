@@ -4,16 +4,24 @@ import java.util.Objects;
 
 public class Person {
 
-    private int id = idCounter++;
+    private int id;
     private String fullName;
     private String phoneNumber;
     private String email;
     private static int idCounter = 1;
 
+    public Person(int id, String fullName, String phoneNumber, String eMail) {
+        this.fullName = fullName;
+        this.email = eMail;
+        this.phoneNumber = phoneNumber;
+        this.id = id;
+    }
+
     public Person(String fullName, String phoneNumber, String eMail) {
         this.fullName = fullName;
         this.email = eMail;
         this.phoneNumber = phoneNumber;
+        this.id = idCounter++;
     }
 
     public int getId() {
